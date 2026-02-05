@@ -22,14 +22,14 @@ const Experience = () => {
         {/* Timeline Container */}
         <div className="relative">
           {/* Vertical line */}
-          <div className="absolute left-8 top-0 h-full w-3  bg-gray-400 rounded-lg"></div>
+          <div className="absolute left-8 top-0 h-full w-1  bg-gray-400 rounded-lg"></div>
 
           {/* Experience Items */}
           <div className="space-y-16">
             {experiences.map((exp, index) => (
               <div key={index} className="relative pl-20">
                 {/* Circular checkpoint fully overlapping the line */}
-                <div className="absolute left-7 top-2 w-5 h-5 rounded-full bg-gray-400 border-2 border-gray-400 "></div>
+                <div className="absolute left-7 top-2 w-3 h-3 rounded-full bg-gray-400 border-2 border-gray-400 "></div>
 
                 {/* Content */}
                 <h3 className="text-xl font-semibold text-purple-900">

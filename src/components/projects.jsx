@@ -10,10 +10,10 @@ const projects = [
     repoUrl: "https://github.com/Bikashxkhanal/mern-project",
   },
   {
-    title: "Currency Converter",
+    title: "Inventroy Management system",
     description:
-      "A React-based currency converter using custom hooks and real-time exchange rates.",
-    image: "/projects/currency-converter.png",
+      "A full-featured backend system for video streaming with authentication, watch history, and scalable APIs.",
+    image: "/projects/video-streaming.png",
     techStack: [
       "React",
       "Tailwindcss",
@@ -23,6 +23,14 @@ const projects = [
       "TanStack",
       "Redux",
     ],
+    repoUrl: "https://github.com/Bikashxkhanal/mern-project",
+  },
+  {
+    title: "Currency Converter",
+    description:
+      "A React-based currency converter using custom hooks and real-time exchange rates.",
+    image: "/projects/currency-converter.png",
+    techStack: ["React", "Tailwindcss"],
     repoUrl: "https://github.com/Bikashxkhanal/Inventory-Management-System",
   },
 ];

@@ -6,8 +6,8 @@ const experiences = [
     role: "Data Annotation Intern",
     duration: "Oct 2025 - Dec 2025",
     description: [
-      "Developed responsive web applications using React, Next.js, and Tailwind.",
-      "Implemented state management using Redux and React Query.",
+      "Strong attention to detail ensuring data and application accuracy",
+      "Improved collaboration and communication within technical teams",
     ],
   },
 ];

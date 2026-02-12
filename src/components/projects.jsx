@@ -5,7 +5,7 @@ const projects = [
     title: "Video Streaming Platform",
     description:
       "A full-featured backend system for video streaming with authentication, watch history, and scalable APIs.",
-    image: "/projects/video-streaming.png",
+    image: "/project_backend.png",
     techStack: ["Node.js", "Express", "MongoDB", "JWT"],
     repoUrl: "https://github.com/Bikashxkhanal/mern-project",
   },
@@ -13,7 +13,7 @@ const projects = [
     title: "Inventroy Management system",
     description:
       "A full-featured backend system for video streaming with authentication, watch history, and scalable APIs.",
-    image: "/projects/video-streaming.png",
+    image: "/ims_click.png",
     techStack: [
       "React",
       "Tailwindcss",
@@ -25,14 +25,7 @@ const projects = [
     ],
     repoUrl: "https://github.com/Bikashxkhanal/mern-project",
   },
-  {
-    title: "Currency Converter",
-    description:
-      "A React-based currency converter using custom hooks and real-time exchange rates.",
-    image: "/projects/currency-converter.png",
-    techStack: ["React", "Tailwindcss"],
-    repoUrl: "https://github.com/Bikashxkhanal/Inventory-Management-System",
-  },
+  
 ];
 
 const Projects = () => {

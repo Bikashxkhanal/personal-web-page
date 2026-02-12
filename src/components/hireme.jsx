@@ -1,11 +1,15 @@
 import Button from "./button";
-import { useState } from "react";
+import { useState , useRef} from "react";
+import emailjs from '@emailjs/browser';
+import { YOUR_PUBLIC_KEY, YOUR_SERVICE_ID, YOUR_TEMPLATE_ID } from "../constants";
 
 const HireMe = () => {
-  const [formData, setFormData] = useState({ name: "", email: "", query: "" });
+  const initialFormState = { name: "", email: "", message: "" }
+  const [formData, setFormData] = useState(initialFormState);
   const [formErr, setFormErr] = useState({});
+  const formRef = useRef();
 
-  // Added 'e' parameter here
+ 
   function handleChange(e) {
     setFormData({
       ...formData,
@@ -14,34 +18,52 @@ const HireMe = () => {
   }
 
   function handleValidation() {
-    let errors = {}; // Initialize as an object
+    let errors = {}; 
     
     if (!formData.name?.trim()) errors.name = "Name is required";
     if (!formData.email?.trim()) errors.email = "Email is required";
-    if (!formData.query?.trim()) errors.query = "Reason is required";
+    if (!formData.message?.trim()) errors.message = "Reason is required";
 
     setFormErr(errors);
     return Object.keys(errors).length === 0;
   }
 
   function handleFormSubmission(e) {
-    // Prevent page reload if using a standard button
+   
     e.preventDefault(); 
     
     if (!handleValidation()) {
-      console.log("Validation failed");
+
       return;
     }
-    console.log("Form Data Submitted:", formData);
-    // Suggestion: Use [EmailJS](https://www.emailjs.com) to send mail without a backend
+    emailjs
+      .sendForm(
+        `${YOUR_SERVICE_ID}`,
+        `${YOUR_TEMPLATE_ID}`,
+        formRef.current,
+        `${YOUR_PUBLIC_KEY}`
+      )
+      .then(
+        (result) => {
+         
+          alert("Message sent successfully!");
+        },
+        (error) => {
+
+          alert("Failed to send message.");
+        }
+      );
+
+    formRef.current?.reset();
+
   }
 
   return (
     <div className="max-w-screen h-screen bg-blue-500 flex justify-center items-center">
-      <form className="w-fit px-5 py-10 flex flex-col items-center border border-blue-600 rounded-xl bg-white text-black gap-4">
+      <form ref={formRef} className="w-fit px-5 py-10 flex flex-col items-center border border-blue-600 rounded-xl bg-white text-black gap-4">
         <h1 className="text-2xl font-bold">Contact Form</h1>
 
-        {/* Display errors with some styling */}
+        
         <div className="w-80">
           {formErr.name && <p className="text-red-500 text-xs">{formErr.name}</p>}
           <input
@@ -65,9 +87,9 @@ const HireMe = () => {
         </div>
 
         <div className="w-80">
-          {formErr.query && <p className="text-red-500 text-xs">{formErr.query}</p>}
+          {formErr.message && <p className="text-red-500 text-xs">{formErr.message}</p>}
           <textarea
-            name="query"
+            name="message"
             placeholder="Write reasons to contact me..."
             onChange={handleChange}
             className="outline-none px-2 py-2 w-full border border-blue-700 rounded-sm"

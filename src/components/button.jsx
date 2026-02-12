@@ -6,7 +6,7 @@ const Button = ({
   variant = "primary", // primary | secondary
 }) => {
   const baseStyles =
-    "relative px-5 py-2 rounded-lg font-medium transition transform active:translate-y-1 active:-translate-x-1";
+    "relative px-5 py-2 rounded-lg font-medium transition cursor-pointer transform active:translate-y-1 active:-translate-x-1";
 
   const variants = {
     primary: "bg-purple-700 text-white border border-purple-900",

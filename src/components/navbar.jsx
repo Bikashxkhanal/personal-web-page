@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import Button from "./button";
-
+import { useNavigate } from "react-router-dom";
 const Navbar = () => {
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
 
   const handleDownloadResume = () => {
@@ -13,7 +14,7 @@ const Navbar = () => {
 
   const handleHireMe = () => {
     // later this can open a modal / form
-    console.log("Open Hire Me form");
+    navigate('/hire-me');
   };
 
   return (
@@ -72,11 +73,12 @@ const Navbar = () => {
         </ul>
 
         {/* Action Buttons (desktop) */}
-        <div className="hidden md:flex gap-6">
+        <div className="hidden md:flex gap-6 ">
           <Button
             children="Hire Me"
             variant="secondary"
             onClick={handleHireMe}
+            
           />
           <Button children="Download Resume" onClick={handleDownloadResume} />
         </div>

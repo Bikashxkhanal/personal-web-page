@@ -97,7 +97,7 @@ const HireMe = () => {
           ></textarea>
         </div>
 
-        <Button onClick={handleFormSubmission}>Submit</Button>
+        <Button  onClick={handleFormSubmission}>Submit</Button>
       </form>
     </div>
   );

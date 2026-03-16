@@ -17,10 +17,14 @@ function App() {
      
   }
 
+  const handleFormClosure = () => {
+    setActive(false);
+  }
+
   return (
     <>
     <div className="relative">
-     <HireMe active={active} />
+     <HireMe active={active} hadleFormClousure={handleFormClosure} />
      <HireMeButton onClick={showHireMePage} />
       <Navbar />
       <About />

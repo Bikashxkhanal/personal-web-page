@@ -4,7 +4,8 @@ import emailjs from '@emailjs/browser';
 import { YOUR_PUBLIC_KEY, YOUR_SERVICE_ID, YOUR_TEMPLATE_ID } from "../constants";
 
 const HireMe = ({ 
-  active = false
+  active = false,
+  hadleFormClousure
 }) => {
   const initialFormState = { name: "", email: "", message: "" }
   const [formData, setFormData] = useState(initialFormState);
@@ -63,9 +64,11 @@ const HireMe = ({
   return (
     <div className={`w-fit flex justify-center items-center fixed inset-0 z-50  top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ${active ? "opacity-70 shadow-2xl pointer-events-auto transition-all duration-500 ease-out" : "max-w-0 opacity-0 pointer-events-none"} `}>
       <form ref={formRef} className="px-20 py-15 flex flex-col items-center border border-blue-600 rounded-xl bg-purple-300 text-black gap-4 relative ">
-        <div className="absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 cursor-pointer">
+
+        {/* close the form  */}
+        <button type="button" onClick={hadleFormClousure} className={`absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 cursor-pointer ${active === false ? "max-w-0 opacity-0 pointer-events-none" : ""}`}>
           <img src="remove.png" alt="" className="w-8 h-8" />
-        </div>
+        </button>
         <h1 className="text-2xl font-bold">Contact Form</h1>
         
         <div className="w-80">

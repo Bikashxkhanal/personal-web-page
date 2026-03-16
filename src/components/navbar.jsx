@@ -12,10 +12,7 @@ const Navbar = () => {
     link.click();
   };
 
-  const handleHireMe = () => {
-    // later this can open a modal / form
-    navigate('/hire-me');
-  };
+ 
 
   return (
     <nav className="fixed top-0 left-0 w-full bg-purple-200 px-8 py-4 z-50 shadow-md">
@@ -72,17 +69,10 @@ const Navbar = () => {
           </li>
         </ul>
 
-        {/* Action Buttons (desktop) */}
-        <div className="hidden md:flex gap-6 ">
-          <Button
-            children="Hire Me"
-            variant="secondary"
-            onClick={handleHireMe}
-            
-          />
+
           <Button children="Download Resume" onClick={handleDownloadResume} />
         </div>
-      </div>
+    
 
       {/* Mobile Menu */}
       {isOpen && (

@@ -1,9 +1,11 @@
 import Button from "./button";
-import { useState , useRef} from "react";
+import { useState , useRef, act} from "react";
 import emailjs from '@emailjs/browser';
 import { YOUR_PUBLIC_KEY, YOUR_SERVICE_ID, YOUR_TEMPLATE_ID } from "../constants";
 
-const HireMe = () => {
+const HireMe = ({ 
+  active = false
+}) => {
   const initialFormState = { name: "", email: "", message: "" }
   const [formData, setFormData] = useState(initialFormState);
   const [formErr, setFormErr] = useState({});
@@ -59,10 +61,12 @@ const HireMe = () => {
   }
 
   return (
-    <div className="max-w-screen h-screen bg-blue-500 flex justify-center items-center">
-      <form ref={formRef} className="w-fit px-5 py-10 flex flex-col items-center border border-blue-600 rounded-xl bg-white text-black gap-4">
+    <div className={`w-fit flex justify-center items-center fixed inset-0 z-50  top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ${active ? "opacity-70 shadow-2xl pointer-events-auto transition-all duration-500 ease-out" : "max-w-0 opacity-0 pointer-events-none"} `}>
+      <form ref={formRef} className="px-20 py-15 flex flex-col items-center border border-blue-600 rounded-xl bg-purple-300 text-black gap-4 relative ">
+        <div className="absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 cursor-pointer">
+          <img src="remove.png" alt="" className="w-8 h-8" />
+        </div>
         <h1 className="text-2xl font-bold">Contact Form</h1>
-
         
         <div className="w-80">
           {formErr.name && <p className="text-red-500 text-xs">{formErr.name}</p>}
@@ -71,7 +75,7 @@ const HireMe = () => {
             name="name"
             placeholder="Enter your name"
             onChange={handleChange}
-            className="outline-none px-2 py-2 w-full border border-blue-700 rounded-sm"
+            className="outline-none px-2 py-2 w-full border border-white rounded-sm bg-white"
           />
         </div>
 
@@ -82,7 +86,7 @@ const HireMe = () => {
             name="email"
             placeholder="Enter your email address"
             onChange={handleChange}
-            className="outline-none px-2 py-2 w-full border border-blue-700 rounded-sm"
+            className="outline-none px-2 py-2 w-full border border-white bg-white rounded-sm"
           />
         </div>
 
@@ -92,7 +96,7 @@ const HireMe = () => {
             name="message"
             placeholder="Write reasons to contact me..."
             onChange={handleChange}
-            className="outline-none px-2 py-2 w-full border border-blue-700 rounded-sm"
+            className="outline-none px-2 py-2 w-full border border-white bg-white rounded-sm"
             rows="5"
           ></textarea>
         </div>

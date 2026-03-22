@@ -14,7 +14,7 @@ const experiences = [
 
 const Experience = () => {
   return (
-    <section id="experience" className="h-min bg-purple-200 px-15 py-10">
+    <section id="experience" className="h-min bg-purple-200 px-25 py-10">
       <div className="max-w-4xl ">
         {/* Section Title */}
         <h2 className="text-4xl font-bold text-purple-900 mb-12">Experience</h2>

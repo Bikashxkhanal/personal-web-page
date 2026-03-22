@@ -4,10 +4,11 @@ const projects = [
   {
     title: "Video Streaming Platform",
     description:
-      "A full-featured backend system for video streaming with authentication, watch history, and scalable APIs.",
+      "A full-featured backend system for video streaming with authentication, watch history, and scalable APIs.(Backend Only)",
     image: "/project_backend.png",
     techStack: ["Node.js", "Express", "MongoDB", "JWT"],
     repoUrl: "https://github.com/Bikashxkhanal/mern-project",
+    status : "completed"
   },
   {
     title: "Inventroy Management system",
@@ -23,6 +24,7 @@ const projects = [
       "TanStack",
       "Redux",
     ],
+    status : "on progress",
     repoUrl: "https://github.com/Bikashxkhanal/mern-project",
   },
   
@@ -75,7 +77,19 @@ const Projects = () => {
                 </div>
 
                 {/* Action Button */}
-                <div className="mt-6 flex">
+                <div className="mt-6 flex items-start ">
+                {/* status */}
+                <div className={` px-6 rounded-2xl  opacity-80 text-white py-1  shadow-sm 
+                  ${(project?.status == 'completed') ? 
+                  'bg-green-500 shadow-green-500/100' :
+                   'bg-yellow-500 shadow-yellow-500/100 '
+                   }`
+                   }>
+                    <div className="text-white">
+                    {project?.status}
+                    </div>
+                </div>
+
                   <div className="ml-auto">
                     {project.liveUrl ? (
                       <a

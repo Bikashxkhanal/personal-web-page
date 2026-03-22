@@ -12,7 +12,7 @@ const projects = [
   {
     title: "Inventroy Management system",
     description:
-      "A full-featured backend system for video streaming with authentication, watch history, and scalable APIs.",
+      "A full-featured inventory system for managing stocks, sells, and purchases.",
     image: "/ims_click.png",
     techStack: [
       "React",

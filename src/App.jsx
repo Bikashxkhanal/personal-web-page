@@ -10,28 +10,19 @@ import Projects from "./components/projects";
 import TechStack from "./components/techStack";
 
 function App() {
-  const [active , setActive ] = useState(false);
-  const showHireMePage = () => {
-    console.log("Hire me");
-    setActive((prev) => !prev);
-     
-  }
-
-  const handleFormClosure = () => {
-    setActive(false);
-  }
+  
 
   return (
     <>
     <div className="relative">
-     <HireMe active={active} hadleFormClousure={handleFormClosure} />
-     <HireMeButton onClick={showHireMePage} />
+ 
       <Navbar />
       <About />
       <Projects />
       {/* <TechStack /> */}
       <Experience />
       <EducationCertifications />
+        <HireMe />
       
       </div>
     </>

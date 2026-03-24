@@ -62,15 +62,19 @@ const HireMe = ({
   }
 
   return (
-    <div className={`w-fit flex justify-center items-center fixed inset-0 z-50  top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ${active ? "opacity-70 shadow-2xl pointer-events-auto transition-all duration-500 ease-out" : "max-w-0 opacity-0 pointer-events-none"} `}>
-      <form ref={formRef} className="px-20 py-15 flex flex-col items-center border border-blue-600 rounded-xl bg-purple-300 text-black gap-4 relative ">
+    <div className={`w-full bg-purple-200 px-20 flex justify-start pb-20 `}>
+      <form ref={formRef} className=" flex flex-col items-start text-black relative gap-5">
 
-        {/* close the form  */}
-        <button type="button" onClick={hadleFormClousure} className={`absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 cursor-pointer ${active === false ? "max-w-0 opacity-0 pointer-events-none" : ""}`}>
-          <img src="remove.png" alt="" className="w-8 h-8" />
-        </button>
-        <h1 className="text-2xl font-bold">Contact Form</h1>
-        
+       <div>
+        <h3 className="text-4xl font-bold text-purple-900 ">Contact Me</h3>
+        <div className="w-140">
+        <p className="text-lg text-purple-700 opacity-50 font-serif">If you require full-stack development services
+         or would like to discuss job opportunities,
+          please provide your information below.</p>
+          </div>
+        </div>
+
+        <div className="flex flex-row flex-start gap-7" >
         <div className="w-80">
           {formErr.name && <p className="text-red-500 text-xs">{formErr.name}</p>}
           <input
@@ -92,19 +96,22 @@ const HireMe = ({
             className="outline-none px-2 py-2 w-full border border-white bg-white rounded-sm"
           />
         </div>
-
-        <div className="w-80">
+      </div>
+        <div className="w-full">
           {formErr.message && <p className="text-red-500 text-xs">{formErr.message}</p>}
+         
           <textarea
             name="message"
-            placeholder="Write reasons to contact me..."
+            placeholder="Type message"
             onChange={handleChange}
             className="outline-none px-2 py-2 w-full border border-white bg-white rounded-sm"
             rows="5"
           ></textarea>
         </div>
 
-        <Button  onClick={handleFormSubmission}>Submit</Button>
+        <div className=" w-full flex flex-row justify-center ">
+        <Button className=""  onClick={handleFormSubmission}>Submit</Button>
+        </div>
       </form>
     </div>
   );

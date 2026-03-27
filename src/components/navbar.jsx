@@ -21,13 +21,13 @@ const Navbar = () => {
         <h1 className="text-xl font-bold text-purple-900">Bikash.dev</h1>
 
         {/* Hamburger button (mobile) */}
-        <div className="md:hidden">
+        {/* <div className="md:hidden">
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="text-purple-900 focus:outline-none"
           >
             {/* Hamburger Icon */}
-            <svg
+            {/* <svg
               className="w-6 h-6"
               fill="none"
               stroke="currentColor"
@@ -51,23 +51,23 @@ const Navbar = () => {
               )}
             </svg>
           </button>
-        </div>
+        </div> */}
 
         {/* Nav Links (desktop) */}
-        <ul className="hidden md:flex gap-8 px-6 py-2 border-purple-400 text-purple-900 font-medium">
-          <li className="cursor-pointer hover:text-purple-700 transition">
-            About
-          </li>
-          <li className="cursor-pointer hover:text-purple-700 transition">
-            Projects
-          </li>
-          <li className="cursor-pointer hover:text-purple-700 transition">
-            Experience
-          </li>
-          <li className="cursor-pointer hover:text-purple-700 transition">
-            Education
-          </li>
-        </ul>
+        {/* // <ul className="hidden md:flex gap-8 px-6 py-2 border-purple-400 text-purple-900 font-medium">
+        //   <li className="cursor-pointer hover:text-purple-700 transition">
+        //     About
+        //   </li>
+        //   <li className="cursor-pointer hover:text-purple-700 transition">
+        //     Projects
+        //   </li>
+        //   <li className="cursor-pointer hover:text-purple-700 transition">
+        //     Experience
+        //   </li>
+        //   <li className="cursor-pointer hover:text-purple-700 transition">
+        //     Education
+        //   </li>
+        // </ul> */}
 
 
           <Button children="Download Resume" onClick={handleDownloadResume} />
@@ -75,7 +75,7 @@ const Navbar = () => {
     
 
       {/* Mobile Menu */}
-      {isOpen && (
+      {/* {isOpen && (
         <div className="md:hidden mt-4 px-4 pb-4 border-t border-purple-300 bg-purple-100 rounded-b-lg">
           <ul className="flex flex-col gap-4 text-purple-900 font-medium">
             <li className="cursor-pointer hover:text-purple-700 transition">
@@ -100,7 +100,7 @@ const Navbar = () => {
             <Button children="Download Resume" onClick={handleDownloadResume} />
           </div>
         </div>
-      )}
+      )} */}
     </nav>
   );
 };

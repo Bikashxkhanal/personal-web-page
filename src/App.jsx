@@ -1,31 +1,50 @@
-import { useState } from "react";
+import { useEffect } from "react";
 import About from "./components/about";
-
 import EducationCertifications from "./components/education";
-import Experience from "./components/experience";
 import HireMe from "./components/hireme";
-import { HireMeButton } from "./components/hiremeBtn";
 import Navbar from "./components/navbar";
 import Projects from "./components/projects";
-import TechStack from "./components/techStack";
+import Hero from "./components/Hero";
 
 function App() {
-  
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.1,
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, observerOptions);
+
+    const sections = document.querySelectorAll(".section-reveal");
+    sections.forEach((section) => observer.observe(section));
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <>
-    <div className="relative">
- 
+    <div className="bg-black text-white selection:bg-white selection:text-black">
       <Navbar />
-      <About />
-      <Projects />
-      {/* <TechStack /> */}
-      <Experience />
-      <EducationCertifications />
-        <HireMe />
-      
+      <Hero />
+      <div className="space-y-40 pb-40">
+        <div className="section-reveal">
+          <About />
+        </div>
+        <div className="section-reveal">
+          <Projects />
+        </div>
+        <div className="section-reveal">
+          <EducationCertifications />
+        </div>
+        <div className="section-reveal">
+          <HireMe />
+        </div>
       </div>
-    </>
+    </div>
   );
 }
 

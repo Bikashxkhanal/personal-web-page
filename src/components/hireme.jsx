@@ -1,133 +1,98 @@
-import Button from "./button";
-import { useState , useRef, act} from "react";
-import emailjs from '@emailjs/browser';
+import React, { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
 import { YOUR_PUBLIC_KEY, YOUR_SERVICE_ID, YOUR_TEMPLATE_ID } from "../constants";
 
-const HireMe = ({ 
-  active = false,
-  hadleFormClousure
-}) => {
-  const initialFormState = { name: "", email: "", message: "" }
-  const [formData, setFormData] = useState(initialFormState);
-  const [formErr, setFormErr] = useState({});
-  const formRef = useRef();
+const HireMe = () => {
+  const form = useRef();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [status, setStatus] = useState("");
 
- 
-  function handleChange(e) {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  }
+  const sendEmail = (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
 
-  function handleValidation() {
-    let errors = {}; 
-    
-    if (!formData.name?.trim()) errors.name = "Name is required";
-    if (!formData.email?.trim()) errors.email = "Email is required";
-    if (!formData.message?.trim()) errors.message = "Reason is required";
-
-    setFormErr(errors);
-    return Object.keys(errors).length === 0;
-  }
-
-  function handleFormSubmission(e) {
-   
-    e.preventDefault(); 
-    
-    if (!handleValidation()) {
-
-      return;
-    }
     emailjs
-      .sendForm(
-        `${YOUR_SERVICE_ID}`,
-        `${YOUR_TEMPLATE_ID}`,
-        formRef.current,
-        `${YOUR_PUBLIC_KEY}`
-      )
+      .sendForm(YOUR_SERVICE_ID, YOUR_TEMPLATE_ID, form.current, YOUR_PUBLIC_KEY)
       .then(
-        (result) => {
-         
-          alert("Message sent successfully!");
+        () => {
+          setStatus("Message sent successfully.");
+          form.current.reset();
         },
-        (error) => {
-
-          alert("Failed to send message.");
+        () => {
+          setStatus("An error occurred. Please try again.");
         }
-      );
-
-    formRef.current?.reset();
-
-  }
+      )
+      .finally(() => setIsSubmitting(false));
+  };
 
   return (
-<div className="w-full bg-purple-200 px-4 sm:px-8 md:px-16 lg:px-20 flex justify-center md:justify-start pb-10 md:pb-20">
-  <form
-    ref={formRef}
-    className="w-full max-w-md md:max-w-lg lg:max-w-xl flex flex-col items-start text-black gap-4 md:gap-5"
-  >
+    <section id="hireme" className="py-40 px-8 relative">
+      <div className="max-w-4xl mx-auto">
+        <div className="mb-20">
+          <span className="text-[10px] uppercase tracking-[0.4em] text-gray-500 mb-4 block font-mono">Contact</span>
+          <h2 className="text-4xl md:text-6xl font-black text-white tracking-tighter uppercase mb-6">Let's Connect</h2>
+          <p className="text-gray-500 text-lg font-light max-w-lg">
+            Open for collaborations and full-stack opportunities. 
+            Reach out via the form below.
+          </p>
+        </div>
 
-    {/* Heading */}
-    <div className="w-full">
-      <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-purple-900">
-        Contact Me
-      </h3>
+        <form ref={form} onSubmit={sendEmail} className="space-y-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div className="space-y-2">
+              <label className="text-[10px] uppercase tracking-[0.2em] text-gray-600 font-bold ml-1">Name</label>
+              <input
+                type="text"
+                name="from_name"
+                required
+                className="w-full bg-transparent border-b border-white/10 py-4 text-white focus:outline-none focus:border-white transition-all placeholder:text-gray-800"
+                placeholder="Name"
+              />
+            </div>
+            <div className="space-y-2">
+              <label className="text-[10px] uppercase tracking-[0.2em] text-gray-600 font-bold ml-1">Email</label>
+              <input
+                type="email"
+                name="user_email"
+                required
+                className="w-full bg-transparent border-b border-white/10 py-4 text-white focus:outline-none focus:border-white transition-all placeholder:text-gray-800"
+                placeholder="Email Address"
+              />
+            </div>
+          </div>
 
-      <p className="text-sm sm:text-base text-purple-700 opacity-70 font-serif mt-2">
-        If you require full-stack development services or would like to discuss job opportunities,
-        please provide your information below.
-      </p>
-    </div>
+          <div className="space-y-2">
+            <label className="text-[10px] uppercase tracking-[0.2em] text-gray-600 font-bold ml-1">Message</label>
+            <textarea
+              name="message"
+              required
+              rows="4"
+              className="w-full bg-transparent border-b border-white/10 py-4 text-white focus:outline-none focus:border-white transition-all resize-none placeholder:text-gray-800"
+              placeholder="Your Message"
+            ></textarea>
+          </div>
 
-    {/* Name + Email */}
-    <div className="w-full flex flex-col sm:flex-row gap-4 sm:gap-6">
-      
-      <div className="w-full">
-        {formErr.name && <p className="text-red-500 text-xs">{formErr.name}</p>}
-        <input
-          type="text"
-          name="name"
-          placeholder="Enter your name"
-          onChange={handleChange}
-          className="outline-none px-3 py-2 w-full border border-white rounded-md bg-white"
-        />
+          <div className="pt-8">
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="group flex items-center gap-4 text-[11px] uppercase tracking-[0.3em] font-black text-white disabled:opacity-30"
+            >
+              {isSubmitting ? "Sending..." : "Send Message"}
+              <div className="w-12 h-px bg-white/20 relative overflow-hidden">
+                <div className="absolute inset-0 bg-white -translate-x-full group-hover:translate-x-0 transition-transform duration-500"></div>
+              </div>
+            </button>
+          </div>
+
+          {status && (
+            <p className="font-mono text-[10px] uppercase tracking-widest text-gray-500 mt-8">
+              {status}
+            </p>
+          )}
+        </form>
       </div>
-
-      <div className="w-full">
-        {formErr.email && <p className="text-red-500 text-xs">{formErr.email}</p>}
-        <input
-          type="email"
-          name="email"
-          placeholder="Enter your email address"
-          onChange={handleChange}
-          className="outline-none px-3 py-2 w-full border border-white bg-white rounded-md"
-        />
-      </div>
-
-    </div>
-
-    {/* Message */}
-    <div className="w-full">
-      {formErr.message && <p className="text-red-500 text-xs">{formErr.message}</p>}
-      <textarea
-        name="message"
-        placeholder="Type message"
-        onChange={handleChange}
-        className="outline-none px-3 py-2 w-full border border-white bg-white rounded-md"
-        rows="5"
-      ></textarea>
-    </div>
-
-    {/* Button */}
-    <div className="w-full flex justify-center sm:justify-start">
-      <Button onClick={handleFormSubmission}>
-        Submit
-      </Button>
-    </div>
-
-  </form>
-</div>
+    </section>
   );
 };
 

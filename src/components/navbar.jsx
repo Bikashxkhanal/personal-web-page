@@ -1,106 +1,60 @@
-import React, { useState } from "react";
-import Button from "./button";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+
 const Navbar = () => {
-  const navigate = useNavigate();
-  const [isOpen, setIsOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("hero");
+  const [scrolled, setScrolled] = useState(false);
 
-  const handleDownloadResume = () => {
-    const link = document.createElement("a");
-    link.href = "/resume.pdf"; // place resume in public folder
-    link.download = "Bikash_Khanal_Resume.pdf";
-    link.click();
-  };
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
 
- 
+      const sections = ["hero", "about", "projects", "education", "hireme"];
+      const current = sections.find(section => {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          return rect.top >= -100 && rect.top <= 300;
+        }
+        return false;
+      });
+      if (current) setActiveSection(current);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const navItems = [
+    { id: "about", label: "About" },
+    { id: "projects", label: "Projects" },
+    { id: "education", label: "Education" },
+    { id: "hireme", label: "Contact" },
+  ];
 
   return (
-    <nav className="fixed top-0 left-0 w-full bg-purple-200 px-8 py-4 z-50 shadow-md">
+    <nav className={`fixed top-0 left-0 w-full z-[90] transition-all duration-500 px-8 md:px-16 py-6 ${scrolled ? 'navbar-glass py-4' : 'bg-transparent'}`}>
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        {/* Logo / Name */}
-        <h1 className="text-xl font-bold text-purple-900">Bikash.dev</h1>
+        {/* Minimal Signature Logo */}
+        <a href="#hero" className="text-xl font-bold tracking-tight text-white">
+          BK
+        </a>
 
-        {/* Hamburger button (mobile) */}
-        {/* <div className="md:hidden">
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="text-purple-900 focus:outline-none"
-          >
-            {/* Hamburger Icon */}
-            {/* <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              {isOpen ? (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              ) : (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              )}
-            </svg>
-          </button>
-        </div> */}
-
-        {/* Nav Links (desktop) */}
-        {/* // <ul className="hidden md:flex gap-8 px-6 py-2 border-purple-400 text-purple-900 font-medium">
-        //   <li className="cursor-pointer hover:text-purple-700 transition">
-        //     About
-        //   </li>
-        //   <li className="cursor-pointer hover:text-purple-700 transition">
-        //     Projects
-        //   </li>
-        //   <li className="cursor-pointer hover:text-purple-700 transition">
-        //     Experience
-        //   </li>
-        //   <li className="cursor-pointer hover:text-purple-700 transition">
-        //     Education
-        //   </li>
-        // </ul> */}
-
-
-          <Button children="Download Resume" onClick={handleDownloadResume} />
-        </div>
-    
-
-      {/* Mobile Menu */}
-      {/* {isOpen && (
-        <div className="md:hidden mt-4 px-4 pb-4 border-t border-purple-300 bg-purple-100 rounded-b-lg">
-          <ul className="flex flex-col gap-4 text-purple-900 font-medium">
-            <li className="cursor-pointer hover:text-purple-700 transition">
-              About
+        {/* Nav Links */}
+        <ul className="flex items-center gap-10">
+          {navItems.map((item) => (
+            <li key={item.id} className="relative group">
+              <a
+                href={`#${item.id}`}
+                className={`text-[11px] uppercase tracking-[0.2em] transition-all ${
+                  activeSection === item.id ? "text-white font-black" : "text-gray-500 hover:text-white"
+                }`}
+              >
+                {item.label}
+              </a>
             </li>
-            <li className="cursor-pointer hover:text-purple-700 transition">
-              Projects
-            </li>
-            <li className="cursor-pointer hover:text-purple-700 transition">
-              Experience
-            </li>
-            <li className="cursor-pointer hover:text-purple-700 transition">
-              Education
-            </li>
-          </ul>
-          <div className="flex flex-col gap-3 mt-4">
-            <Button
-              children="Hire Me"
-              variant="secondary"
-              onClick={handleHireMe}
-            />
-            <Button children="Download Resume" onClick={handleDownloadResume} />
-          </div>
-        </div>
-      )} */}
+          ))}
+        </ul>
+      </div>
     </nav>
   );
 };

@@ -27,10 +27,10 @@ function App() {
   }, []);
 
   return (
-    <div className="bg-black text-white selection:bg-white selection:text-black">
+    <div className="bg-[#0a0a0a] text-white selection:bg-white selection:text-black">
       <Navbar />
       <Hero />
-      <div className="space-y-40 pb-40">
+      <div className="px-6 md:px-0 space-y-40 pb-40">
         <div className="section-reveal">
           <About />
         </div>

@@ -17,7 +17,7 @@ const Hero = () => {
     const timer = setTimeout(() => setPhase('active'), 100);
     return () => clearTimeout(timer);
   }, []);
-
+// new deployment created
   return (
     <section id="hero" className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-[#0a0a0a]">
       
@@ -49,8 +49,12 @@ const Hero = () => {
         ))}
       </div>
 
+
+
+
+
       {/* 3. Identity Reveal (Scaling name during unfold) */}
-      <div className="relative z-20 text-center px-8 md:px-24">
+      <div className="relative z-20  text-center px-8 md:px-24">
         <h1 className="text-4xl sm:text-5xl md:text-8xl lg:text-[10vw] font-black tracking-tighter text-white animate-text-grow">
           BIKASH <span className="text-gray-500">KHANAL</span>
         </h1>

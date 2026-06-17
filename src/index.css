@@ -20,19 +20,45 @@
   }
 
   @keyframes text-grow {
-    0% { transform: scale(15) translateZ(2000px); opacity: 0; letter-spacing: 0.5em; filter: blur(30px); }
-    10% { opacity: 0.8; filter: blur(15px); }
-    100% { transform: scale(1) translateZ(0); opacity: 1; letter-spacing: -0.05em; filter: blur(0); }
+    0% { 
+      transform: scale(var(--initial-scale, 15)) translateZ(2000px); 
+      opacity: 0; 
+      letter-spacing: 0.5em; 
+      filter: blur(var(--initial-blur, 30px)); 
+    }
+    15% { opacity: 0.8; filter: blur(var(--initial-blur-half, 15px)); }
+    100% { 
+      transform: scale(1) translateZ(0); 
+      opacity: 1; 
+      letter-spacing: -0.05em; 
+      filter: blur(0); 
+    }
+  }
+  @keyframes sweep {
+    0% { transform: translateX(-100%); }
+    50% { transform: translateX(100%); }
+    100% { transform: translateX(100%); }
   }
   @keyframes fade-in {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from { opacity: 0; }
+    to { opacity: 1; }
   }
 }
 
 :root {
   background-color: #0a0a0a;
   color: #ffffff;
+  --initial-scale: 15;
+  --initial-blur: 30px;
+  --initial-blur-half: 15px;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --initial-scale: 10;
+    --initial-blur: 20px;
+    --initial-blur-half: 8px;
+  }
 }
 
 body {

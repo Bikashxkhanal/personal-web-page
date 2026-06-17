@@ -32,7 +32,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 w-full z-[90] transition-all duration-500 px-6 md:px-16 py-6 ${scrolled ? 'navbar-glass py-4' : 'bg-transparent'}`}>
+    <nav className={`fixed top-0 left-0 w-full z-[90] transition-all duration-500 px-6 md:px-16 py-6 animate-fade-in [animation-delay:1.5s] [animation-fill-mode:both] ${scrolled ? 'navbar-glass py-4' : 'bg-transparent'}`}>
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Minimal Signature Logo - Hidden on mobile */}
         <a href="#hero" className="hidden md:block text-xl font-bold tracking-tight text-white">

@@ -7,8 +7,7 @@
   
   --animate-unfold-top: unfold-top 1.5s cubic-bezier(0.85, 0, 0.15, 1) forwards;
   --animate-unfold-bottom: unfold-bottom 1.5s cubic-bezier(0.85, 0, 0.15, 1) forwards;
-  --animate-shape-fall: shape-fall 4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-  --animate-text-grow: text-grow 2s cubic-bezier(0.2, 0, 0.2, 1) forwards;
+  --animate-text-grow: text-grow 1.5s cubic-bezier(0.16, 1, 0.3, 1) both;
   --animate-fade-in: fade-in 1s ease-out forwards;
 
   @keyframes unfold-top {
@@ -19,14 +18,11 @@
     0% { transform: translateY(0); }
     100% { transform: translateY(100%); }
   }
-  @keyframes shape-fall {
-    0% { transform: translateY(-120vh) rotate(0deg); opacity: 0; }
-    30% { opacity: 1; }
-    100% { transform: translateY(0) rotate(var(--final-rotation, 0deg)); opacity: 1; }
-  }
+
   @keyframes text-grow {
-    0% { transform: scale(0.4); opacity: 0; letter-spacing: 1em; }
-    100% { transform: scale(1); opacity: 1; letter-spacing: -0.05em; }
+    0% { transform: scale(15) translateZ(2000px); opacity: 0; letter-spacing: 0.5em; filter: blur(30px); }
+    10% { opacity: 0.8; filter: blur(15px); }
+    100% { transform: scale(1) translateZ(0); opacity: 1; letter-spacing: -0.05em; filter: blur(0); }
   }
   @keyframes fade-in {
     from { opacity: 0; transform: translateY(20px); }

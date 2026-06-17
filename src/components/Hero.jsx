@@ -1,15 +1,5 @@
 import React, { useState, useEffect } from 'react';
 
-const STATIC_SHAPES = [...Array(15)].map((_, i) => ({
-  id: i,
-  type: i % 3 === 0 ? 'square' : i % 3 === 1 ? 'circle' : 'rect',
-  size: Math.floor(Math.random() * 50 + 20) + 'px',
-  delay: (Math.random() * 1).toFixed(2) + 's',
-  rotation: Math.floor(Math.random() * 360) + 'deg',
-  left: (Math.random() * 90 + 5).toFixed(2) + '%',
-  duration: (Math.random() * 2 + 2).toFixed(2) + 's',
-}));
-
 const Hero = () => {
   const [phase, setPhase] = useState('unfolding'); // unfolding -> active
 
@@ -17,45 +7,19 @@ const Hero = () => {
     const timer = setTimeout(() => setPhase('active'), 100);
     return () => clearTimeout(timer);
   }, []);
-// new deployment created
+
   return (
-    <section id="hero" className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-[#0a0a0a]">
+    <section id="hero" className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-[#0a0a0a] [perspective:2000px]">
       
-      {/* 1. Page Unfold Panels (Reveal from center) */}
+      {/* 1. Page Unfold Panels */}
       <div className="absolute inset-0 z-[100] pointer-events-none">
-        <div className="h-1/2 w-full bg-[#0a0a0a] border-b border-white/5 animate-unfold-top origin-bottom"></div>
-        <div className="h-1/2 w-full bg-[#0a0a0a] border-t border-white/5 animate-unfold-bottom origin-top"></div>
+        <div className="h-1/2 w-full bg-[#0a0a0a] border-b border-white/10 animate-unfold-top origin-bottom"></div>
+        <div className="h-1/2 w-full bg-[#0a0a0a] border-t border-white/10 animate-unfold-bottom origin-top"></div>
       </div>
 
-      {/* 2. Shape Flow Animation (Visible during and after unfold) */}
-      <div className="absolute inset-0 z-10 pointer-events-none">
-        {STATIC_SHAPES.map((shape) => (
-          <div
-            key={shape.id}
-            className={`absolute border border-white/10 bg-white/5 animate-shape-fall ${
-              shape.type === 'circle' ? 'rounded-full' : ''
-            }`}
-            style={{
-              width: shape.size,
-              height: shape.type === 'rect' ? parseInt(shape.size) * 0.4 + 'px' : shape.size,
-              left: shape.left,
-              animationDelay: shape.delay,
-              animationDuration: shape.duration,
-              '--final-rotation': shape.rotation,
-              top: '50%',
-              marginTop: '-100vh',
-            }}
-          ></div>
-        ))}
-      </div>
-
-
-
-
-
-      {/* 3. Identity Reveal (Scaling name during unfold) */}
-      <div className="relative z-20  text-center px-8 md:px-24">
-        <h1 className="text-4xl sm:text-5xl md:text-8xl lg:text-[10vw] font-black tracking-tighter text-white animate-text-grow">
+      {/* 2. Identity Reveal (Big to Small) */}
+      <div className="relative z-20 text-center px-8 md:px-24 [transform-style:preserve-3d]">
+        <h1 className="text-4xl sm:text-8xl md:text-10xl lg:text-[10vw] font-black tracking-tighter text-white animate-text-grow whitespace-nowrap will-change-transform">
           BIKASH <span className="text-gray-500">KHANAL</span>
         </h1>
         

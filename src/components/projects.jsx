@@ -31,79 +31,84 @@ const projects = [
   {
     title : "Chat Application",
     description : "The Chat Application is a scalable, secure, and white-label real-time messaging platform designed to provide seamless communication for organizations, educational institutions, and businesses. ",
-    features : [
+    longDescription : 
    `    
-          ### **User Authentication**
-          The chat application provides a secure authentication system that enables users to register, log in, and access the platform using JWT-based authentication. Protected routes and authorization mechanisms ensure that only authenticated users can access messaging services and personal data.
-`,
+          ### **User Authentication**\n\n\n
+          \nThe chat application provides a secure authentication system that enables users to register, log in, and access the platform using JWT-based authentication. Protected routes and authorization mechanisms ensure that only authenticated users can access messaging services and personal data.
 
-`### **Real-Time Messaging**
 
-The application enables instant one-to-one messaging through Socket.IO, allowing users to send and receive messages with minimal latency. Real-time communication ensures a seamless messaging experience without requiring page refreshes.
-`,
-`### **Conversation Management**
+### **Real-Time Messaging**\n
 
-Users can create, access, and manage conversations efficiently. The system organizes conversations with recent activity, displays the latest message preview, and maintains participant information for quick navigation.`,
+The application enables instant one-to-one messaging through Socket.IO, allowing users to send and receive messages with minimal latency. Real-time communication ensures a seamless messaging experience without requiring page refreshes.\n
 
-`### **Message Synchronization**
+### **Conversation Management**\n
 
-Messages are synchronized across connected devices in real time, ensuring that users always view the latest conversation state. This provides a consistent messaging experience regardless of the device being used.
-`,
-`### **Message Delivery and Read Receipts**
+Users can create, access, and manage conversations efficiently. The system organizes conversations with recent activity, displays the latest message preview, and maintains participant information for quick navigation.\n
 
-The application tracks the status of every message through stages such as **Sending**, **Sent**, **Delivered**, and **Seen**. Read receipts provide confirmation when recipients have viewed messages, improving communication transparency.`,
+### **Message Synchronization**\n
 
-`### **Typing Indicators**
+Messages are synchronized across connected devices in real time, ensuring that users always view the latest conversation state. This provides a consistent messaging experience regardless of the device being used.\n
 
-Typing indicators notify participants when another user is composing a message and automatically disappear when typing stops. This feature creates a more natural and interactive communication experience.`,
+### **Message Delivery and Read Receipts**\n
 
-`### **Online Presence**
+The application tracks the status of every message through stages such as **Sending**, **Sent**, **Delivered**, and **Seen**. Read receipts provide confirmation when recipients have viewed messages, improving communication transparency.\n
 
-The system displays users' online and offline status in real time. Presence information is updated instantly whenever users connect or disconnect, allowing participants to know the availability of others.`,
+### **Typing Indicators**\n
 
-`### **Profile Management**
+Typing indicators notify participants when another user is composing a message and automatically disappear when typing stops. This feature creates a more natural and interactive communication experience.\n
 
-Users can personalize their accounts by updating profile information, including profile pictures, display names, and other personal details. Profile updates are reflected throughout the application.`,
+### **Online Presence**\n
 
-`
-### **Search Functionality**
+The system displays users' online and offline status in real time. Presence information is updated instantly whenever users connect or disconnect, allowing participants to know the availability of others.\n
 
-A built-in search feature enables users to quickly locate conversations, contacts, and messages, improving navigation and reducing the time required to retrieve previous communications.`,
+### **Profile Management**\n
 
-`### **Socket-Based Event System**
+Users can personalize their accounts by updating profile information, including profile pictures, display names, and other personal details. Profile updates are reflected throughout the application.\n
 
-The application follows an event-driven architecture using Socket.IO to handle events such as message delivery, typing notifications, online presence, conversation joining, and read receipts. This ensures all connected clients remain synchronized in real time.`,
+### **Search Functionality**\n
 
-`### **Custom JavaScript/TypeScript SDK**
+A built-in search feature enables users to quickly locate conversations, contacts, and messages, improving navigation and reducing the time required to retrieve previous communications.\n
 
-A reusable JavaScript/TypeScript SDK simplifies integration of the chat system into web applications. The SDK provides type-safe APIs, socket management, event handling, and communication services, reducing development effort for client applications.`,
+### **Socket-Based Event System**\n
 
-`### **RESTful API Integration**
+The application follows an event-driven architecture using Socket.IO to handle events such as message delivery, typing notifications, online presence, conversation joining, and read receipts. This ensures all connected clients remain synchronized in real time.\n
 
-The backend exposes RESTful APIs for user authentication, conversation management, messaging, profile management, and file uploads. These APIs provide standardized communication between the frontend and backend services.`,
+### **Custom JavaScript/TypeScript SDK**\n
 
-`### **Redis Integration**
+A reusable JavaScript/TypeScript SDK simplifies integration of the chat system into web applications. The SDK provides type-safe APIs, socket management, event handling, and communication services, reducing development effort for client applications.\n
 
-Redis is utilized to improve system performance through caching, temporary data storage, OTP management, and session optimization. This reduces database load and enhances response times.`,
+### **RESTful API Integration**\n
 
-`### **Scalable Backend Architecture**
+The backend exposes RESTful APIs for user authentication, conversation management, messaging, profile management, and file uploads. These APIs provide standardized communication between the frontend and backend services.\n
 
-The backend is developed using Node.js, Express.js, TypeScript, MongoDB, Redis, and Socket.IO, providing a modular and scalable architecture capable of supporting a large number of concurrent users and real-time connections.
-`,
-`### **Security and Authorization**
+### **Redis Integration**\n
 
-The application incorporates multiple security mechanisms, including JWT authentication, password hashing, request validation, socket authentication, and conversation participant verification. These measures ensure secure communication and protect user data from unauthorized access.`,
+Redis is utilized to improve system performance through caching, temporary data storage, OTP management, and session optimization. This reduces database load and enhances response times.\n
 
-`### **White-Label Architecture**
+### **Scalable Backend Architecture**\n
 
-The platform is designed as a white-label messaging solution that can be integrated into institutional or enterprise applications. Organizations can customize the branding, user interface, and authentication mechanisms while leveraging the same secure and scalable messaging infrastructure.`, 
+The backend is developed using Node.js, Express.js, TypeScript, MongoDB, Redis, and Socket.IO, providing a modular and scalable architecture capable of supporting a large number of concurrent users and real-time connections.\n
 
-    ],
+### **Security and Authorization**\n
+
+The application incorporates multiple security mechanisms, including JWT authentication, password hashing, request validation, socket authentication, and conversation participant verification. These measures ensure secure communication and protect user data from unauthorized access.\n
+
+### **White-Label Architecture**\n
+
+The platform is designed as a white-label messaging solution that can be integrated into institutional or enterprise applications. Organizations can customize the branding, user interface, and authentication mechanisms while leveraging the same secure and scalable messaging infrastructure.\n`
+
+,
   problem : `Existing messaging platforms and SDKs often lack white-label support, limiting organizations from fully customizing branding and user experience. Many commercial solutions are proprietary, costly, and create vendor lock-in, making integration and scalability challenging. Building a secure real-time messaging system from scratch requires significant development effort and expertise. Therefore, there is a need for a customizable, scalable, and developer-friendly white-label chat SDK that can be seamlessly integrated into existing applications. 
   
   Unlike traditional messaging platforms that are tied to a specific brand or ecosystem, this application allows institutions to integrate the messaging system into their own products while maintaining complete control over branding, authentication, users, and data. The application is built using a modern full-stack architecture with React, TypeScript, Node.js, Express.js, MongoDB, Redis, Socket.IO, and a custom JavaScript/TypeScript SDK, ensuring high performance, reliability, and ease of integration. It supports real-time communication, offline message synchronization, secure authentication, and scalable backend services capable of handling thousands of concurrent users. The system follows a modular architecture where the frontend communicates with REST APIs for data retrieval and uses WebSocket connections for instant messaging events. Redis is utilized for caching, OTP storage, and message/event optimization, while MongoDB stores user profiles, conversations, and message history. The application is designed to support both one-to-one and future group conversations with efficient conversation management. 
   
   `,
+  features: [
+      "Real-time Multi-warehouse Stock Synchronization",
+      "Predictive Analytics for Inventory Procurement",
+      "Detailed Financial Reporting & Audit Logs",
+      "Role-based Access Control for Staff"
+    ],
   techStack : [
   "React",
   "TypeScript",

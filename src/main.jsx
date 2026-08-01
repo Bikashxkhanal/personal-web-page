@@ -6,6 +6,7 @@ import { createBrowserRouter } from 'react-router-dom'
 import { Router } from 'react-router-dom'
 import HireMe from './components/hireme.jsx'
 import { RouterProvider } from 'react-router-dom'
+import CLI from './components/cli.js'
 
 const router = createBrowserRouter([
   //routers 
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
   {
     path : '/hire-me', 
     element : <HireMe />
+  }, 
+  {
+    path : '/#cli',
+    element : <CLI />
   }
 ])
 

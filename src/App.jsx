@@ -5,6 +5,7 @@ import HireMe from "./components/hireme";
 import Navbar from "./components/navbar";
 import Projects from "./components/projects";
 import Hero from "./components/Hero";
+import CLI from "./components/cli";
 
 function App() {
   useEffect(() => {
@@ -42,6 +43,9 @@ function App() {
         </div>
         <div className="section-reveal">
           <HireMe />
+        </div>
+        <div>
+          <CLI />
         </div>
       </div>
     </div>

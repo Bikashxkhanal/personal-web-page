@@ -123,7 +123,19 @@ The platform is designed as a white-label messaging solution that can be integra
   "GitHub"
 ]
 
-  }
+  }, 
+  {
+    title: "KDS",
+    description: "It is an businesse management system soley designed to meet the client business requirements.",
+    features: [
+      "Real-time Multi-warehouse Stock Synchronization",
+      "Predictive Analytics for Inventory Procurement",
+      "Detailed Financial Reporting & Audit Logs",
+      "Role-based Access Control for Staff"
+    ],
+    problem: "Book Keeping and manual record are inefficifient when the data becomes huge. Efficient management of those records for both security and reliability is necessary. This business system solves this problem by centralizing the record keeping work through the web portal. Records can be easily created, deleted and searched with the feature for creating the billing too",
+    techStack: ["React", "Tailwind CSS", "MongoDB", "NodeJS"],
+  },
 ];
 
 const Projects = () => {

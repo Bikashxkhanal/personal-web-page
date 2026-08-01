@@ -45,7 +45,7 @@ function App() {
           <HireMe />
         </div>
         <div>
-          <CLI />
+
         </div>
       </div>
     </div>

@@ -1,12 +1,56 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="./index.css" rel="stylesheet" />
-    <title>Bikash khanal | Full Stack Developer</title>
-    <script type="module" crossorigin src="/assets/index-CyrQ7FeC.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-ClFhlBVN.css">
+    <title>Bikash Khanal | Network & Linux Engineer</title>
+    <meta
+      name="description"
+      content="Bikash Khanal — Network & Linux Engineer in training. CCNA curriculum completed, Ubuntu Linux practice, home labs, and prior full-stack experience."
+    />
+    <meta name="theme-color" content="#050806" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://bikashkhanal07.com.np/" />
+    <meta property="og:title" content="Bikash Khanal | Network & Linux Engineer" />
+    <meta
+      property="og:description"
+      content="CCNA-trained network engineer in the making. Routing, switching, Linux administration, and home labs."
+    />
+    <meta property="og:image" content="https://bikashkhanal07.com.np/profile.png" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Bikash Khanal | Network & Linux Engineer" />
+    <meta
+      name="twitter:description"
+      content="CCNA-trained network engineer in the making. Routing, switching, Linux administration, and home labs."
+    />
+    <meta name="twitter:image" content="https://bikashkhanal07.com.np/profile.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      // Apply stored / system theme before paint to avoid flash
+      (function () {
+        try {
+          var t = localStorage.getItem("portfolio-theme");
+          if (!t) {
+            t = window.matchMedia("(prefers-color-scheme: light)").matches
+              ? "light"
+              : "dark";
+          }
+          document.documentElement.setAttribute("data-theme", t);
+        } catch (e) {}
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-M7TmIXwV.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BAvRgoPK.css">
   </head>
   <body>
     <div id="root"></div>

@@ -40,19 +40,33 @@ const Projects = () => {
                 </span>
               ))}
             </div>
+            <div className="mt-auto flex gap-2">
+              {project.link && (
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${project.title} live demo`}
+                  className="inline-flex h-9 w-9 items-center justify-center rounded border border-[var(--border)] text-[var(--heading)] transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
+                >
+                  <ProjectIcon name="globe" className="h-4 w-4" />
+                </a>
+              )}
 
-            <a
-              href={project.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`${project.title} on GitHub`}
-              className="mt-auto inline-flex h-9 w-9 items-center justify-center rounded border border-[var(--border)] text-[var(--heading)] transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
-              onClick={(e) => {
-                if (project.github === "#") e.preventDefault();
-              }}
-            >
-              <IconGithub className="h-4 w-4" />
-            </a>
+             { project.github && (
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${project.title} on GitHub`}
+                className="inline-flex h-9 w-9 items-center justify-center rounded border border-[var(--border)] text-[var(--heading)] transition hover:border-[var(--accent)] hover:text-[var(--accent)]"
+                onClick={(e) => {
+                  if (project.github === "#") e.preventPreventDefault();
+                }}
+              >
+                <IconGithub className="h-4 w-4" />
+              </a>)}
+            </div>
           </article>
         ))}
       </div>

@@ -12,12 +12,12 @@ export const profile = {
   tagline:
     "CCNA-trained network engineer in the making. I configure, secure and troubleshoot networks, and I live in the Linux terminal.",
   location: "Nepal",
-  email: "bikashkhanal07@gmail.com", // EDIT
+  email: "bikashkhanal007@gmail.com",
   socials: {
     github: "https://github.com/Bikashxkhanal",
-    linkedin: "https://www.linkedin.com/in/", // EDIT: your LinkedIn URL
+    linkedin: "https://www.linkedin.com/in/bikash-khanal-51b84a27b/", 
   },
-  cvUrl: "/resume.pdf",
+  cvUrl: "/bikashkhanal.pdf",
   metaDescription:
     "Bikash Khanal — Network & Linux Engineer in training. CCNA curriculum completed, Ubuntu Linux practice, home labs, and prior full-stack experience.",
   ogImage: "/profile.png",
@@ -146,37 +146,23 @@ export const education = [
  */
 export const projects = [
   {
-    title: "Video Streaming Backend",
+    title: "Personal Portfolio",
     description:
-      "High-throughput media delivery API - auth, chunked uploads, caching, and session control for streaming traffic.",
-    tags: ["Node.js", "Redis", "JWT", "Express"],
-    icon: "server",
-    github: "#", // EDIT
+      "React portfolio site with terminal-style hero, dark/light theme, and responsive design. Built with React, Tailwind CSS, and Vite. and deployed using GitHub Pages.",
+    tags: ["React", "Tailwind CSS", "Vite", "GitHub Pages"],
+    icon: "FullStack",
+    github: "https://github.com/Bikashxkhanal/personal-web-page",
   },
-  {
-    title: "Inventory Management System",
-    description:
-      "Multi-warehouse stock and procurement portal with role-based access structured data flows across business nodes.",
-    tags: ["React", "MySQL", "PHP", "Redux"],
-    icon: "database",
-    github: "#", // EDIT
-  },
-  {
-    title: "Chat Application",
-    description:
-      "Real-time messaging platform over WebSockets - presence, delivery receipts, and a white-label SDK for integration.",
-    tags: ["Socket.IO", "MongoDB", "TypeScript", "Redis"],
-    icon: "message",
-    github: "#", // EDIT
-  },
+
   {
     title: "KDS Business System",
     description:
       "Client-focused business management portal - centralized records, billing, and secure multi-user access.",
     tags: ["React", "MongoDB", "Node.js", "Tailwind"],
     icon: "globe",
-    github: "#", // EDIT
+    link: "https://kds.bikashkhanal07.com.np", // EDIT
   },
+
   {
     title: "VLAN & Inter-VLAN Lab",
     description:
@@ -201,6 +187,16 @@ export const projects = [
     icon: "shield",
     github: "#",
   },
+  
+  {
+    title: "Inventory Management System",
+    description:
+      "Multi-warehouse stock and procurement portal with role-based access structured data flows across business nodes.",
+    tags: ["React", "MySQL", "PHP", "Redux"],
+    icon: "database",
+    github: "https://github.com/Bikashxkhanal/Inventory-Management-System", // EDIT
+  },
+  
   {
     title: "Ubuntu Server (DNS/DHCP)",
     description:

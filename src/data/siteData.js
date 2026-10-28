@@ -152,6 +152,7 @@ export const projects = [
     tags: ["React", "Tailwind CSS", "Vite", "GitHub Pages"],
     icon: "FullStack",
     github: "https://github.com/Bikashxkhanal/personal-web-page",
+    link: "https://bikashkhanal07.com.np", // EDIT
   },
 
   {
@@ -161,6 +162,15 @@ export const projects = [
     tags: ["React", "MongoDB", "Node.js", "Tailwind"],
     icon: "globe",
     link: "https://kds.bikashkhanal07.com.np", // EDIT
+  },
+   {
+    title: "Nepali Typing",
+    description:
+      "Nepali typing practice web app with real-time feedback and performance tracking. Built with NextJs, Tailwind CSS, and deployed on Vercel. It allow lesson wise learning and practice typing in Nepali language with diffrent nepali typing keyboard layout.",
+    tags: ["Next.js", "Tailwind CSS", "Vite", "GitHub Pages"],
+    icon: "FullStack",
+    github: "https://github.com/Bikashxkhanal/nepali-typing",
+    link: "https://nepalityping.bikashkhanal07.com.np", 
   },
 
   {
@@ -205,6 +215,7 @@ export const projects = [
     icon: "terminal",
     github: "#",
   },
+  
 ];
 
 export const contact = {

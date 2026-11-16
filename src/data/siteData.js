@@ -182,7 +182,7 @@ export const projects = [
     github: "#",
   },
   {
-    title: "OSPF Multi-Area Lab",
+    title: "OSPF Single-Area Lab",
     description:
       "Multi-area OSPF topology with route summarization and neighbor troubleshooting across simulated routers.",
     tags: ["OSPF", "Routing", "Packet Tracer", "Wireshark"],
@@ -207,14 +207,7 @@ export const projects = [
     github: "https://github.com/Bikashxkhanal/Inventory-Management-System", // EDIT
   },
   
-  {
-    title: "Ubuntu Server (DNS/DHCP)",
-    description:
-      "Linux server lab provisioning DNS and DHCP services - bash, ssh, and service hardening basics.",
-    tags: ["Ubuntu", "DNS", "DHCP", "bash"],
-    icon: "terminal",
-    github: "#",
-  },
+
   
 ];
 

@@ -184,7 +184,7 @@ export const projects = [
   {
     title: "OSPF Single-Area Lab",
     description:
-      "Multi-area OSPF topology with route summarization and neighbor troubleshooting across simulated routers.",
+      "Single-area OSPF topology with route summarization and neighbor troubleshooting across simulated routers.",
     tags: ["OSPF", "Routing", "Packet Tracer", "Wireshark"],
     icon: "router",
     github: "#",

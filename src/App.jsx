@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import About from "./components/about";
 import BootLoader from "./components/BootLoader";
 import EducationCertifications from "./components/education";
+import Experience from "./components/experience";
 import HireMe from "./components/hireme";
 import Hero from "./components/Hero";
 import Navbar from "./components/navbar";
@@ -36,6 +37,9 @@ function App() {
       <div className="relative z-[2] space-y-8 pb-32 md:space-y-16">
         <div className="section-reveal">
           <About />
+        </div>
+        <div className="section-reveal">
+          <Experience />
         </div>
         <div className="section-reveal">
           <Projects />

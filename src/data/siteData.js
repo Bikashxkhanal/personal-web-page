@@ -222,6 +222,23 @@ export const contact = {
 export const navItems = [
   { id: "hero", label: "Home" },
   { id: "about", label: "About" },
+  { id: "experience", label: "Experience" },
   { id: "projects", label: "Projects" },
   { id: "contact", label: "Contact" },
+];
+
+// Add entries here. Set current to true to display “Present” as the end date.
+export const experiences = [
+   {
+    organization: "Ycotek",
+    role: "System & Network Intern",
+    startDate: "Nov 2026",
+    current: true,
+    accomplishments: [
+      "Responsible for configuring and maintaining network devices, including routers, switches,firewalls and APs",
+      "Monitored network performance and troubleshooted issues to ensure optimal connectivity and uptime.",
+      "Responsible for resolving technical issues related to network connectivity, hardware, and software in the company.",
+    ],
+    tools: ["Windows Server", "Linux", "Wireshark", "Zabbix"],
+  }
 ];

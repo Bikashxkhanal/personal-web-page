@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { profile } from "../data/siteData";
 import { IconGithub, IconLinkedin } from "./icons";
 import MacTerminal from "./MacTerminal";
+import VisitorCounter from "./VisitorCounter";
 
 /**
  * Hero — 50/50 split on desktop.
@@ -22,6 +23,7 @@ const Hero = ({ ready = false }) => {
       id="hero"
       className="relative z-[2] min-h-screen flex items-center overflow-hidden px-6 md:px-12 lg:px-20 pt-28 pb-16"
     >
+      <VisitorCounter />
       <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
         {/* LEFT */}
         <div className="relative [transform-style:preserve-3d]">
